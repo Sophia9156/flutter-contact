@@ -11,17 +11,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(title: Text("앱임")),
-      body: Align(
-        alignment: Alignment.center,
-        child: Container(
-          width: double.infinity,
-          height: 50,
-          margin: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.black), color: Colors.blue),
-        ),
+      appBar: AppBar(
+        title: Text("앱임"),
+        actions: [
+          Icon(Icons.search),
+          Icon(Icons.menu),
+          Icon(Icons.notifications_none_outlined)
+        ],
       ),
+      body: SizedBox(
+          child: Text(
+        "안녕하세요",
+        style: TextStyle(
+            color: Color(0xffff0000),
+            fontSize: 20,
+            fontWeight: FontWeight.w700),
+      )),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
             height: 60,

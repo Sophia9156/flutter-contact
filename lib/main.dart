@@ -9,6 +9,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Image.asset("assets/cat1.jpeg"));
+    return MaterialApp(
+        home: Scaffold(
+      appBar: AppBar(title: Text("앱임")),
+      body: Container(
+        child: Text("안녕"),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          Icon(Icons.phone),
+          Icon(Icons.message),
+          Icon(Icons.contact_page)
+        ]),
+      ),
+    ));
   }
 }

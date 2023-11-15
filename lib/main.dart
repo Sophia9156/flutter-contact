@@ -19,14 +19,30 @@ class MyApp extends StatelessWidget {
           Icon(Icons.notifications_none_outlined)
         ],
       ),
-      body: SizedBox(
-          child: Text(
-        "안녕하세요",
-        style: TextStyle(
-            color: Color(0xffff0000),
-            fontSize: 20,
-            fontWeight: FontWeight.w700),
-      )),
+      body: Container(
+          height: 150,
+          padding: EdgeInsets.all(10),
+          child: Row(
+            children: [
+              Image.asset(
+                "assets/cat1.jpeg",
+                width: 150,
+              ),
+              Expanded(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("카메라팝니다."),
+                      Text("금호동 3가"),
+                      Text("7000원"),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [Icon(Icons.favorite), Text("4")],
+                      )
+                    ]),
+              )
+            ],
+          )),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
             height: 60,

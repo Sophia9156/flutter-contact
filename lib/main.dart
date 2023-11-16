@@ -1,59 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  var a = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text("앱임"),
-        actions: [
-          Icon(Icons.search),
-          Icon(Icons.menu),
-          Icon(Icons.notifications_none_outlined)
-        ],
+      floatingActionButton: FloatingActionButton(
+        child: Text(a.toString()),
+        onPressed: () {
+          print(a);
+          a++;
+        },
       ),
-      body: Container(
-          height: 150,
-          padding: EdgeInsets.all(10),
-          child: Row(
-            children: [
-              Image.asset(
-                "assets/cat1.jpeg",
-                width: 150,
-              ),
-              Expanded(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("카메라팝니다."),
-                      Text("금호동 3가"),
-                      Text("7000원"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [Icon(Icons.favorite), Text("4")],
-                      )
-                    ]),
-              )
-            ],
-          )),
-      bottomNavigationBar: BottomAppBar(
-        child: SizedBox(
-            height: 60,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(Icons.phone),
-                  Icon(Icons.message),
-                  Icon(Icons.contact_page)
-                ])),
-      ),
+      appBar: AppBar(),
+      bottomNavigationBar: BottomAppBar(),
+      body: ListView.builder(
+          itemCount: 3,
+          itemBuilder: (c, i) {
+            return ListTile(
+              leading: Image.asset("assets/cat1.jpeg"),
+              title: Text("홍길동"),
+            );
+          }),
     ));
   }
 }

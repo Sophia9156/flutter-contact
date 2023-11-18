@@ -12,7 +12,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 1;
   var likes = [0, 0, 0];
   var name = ["김영숙", "홍길동", "피자집"];
 
@@ -20,14 +19,20 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Text(a.toString()),
-        onPressed: () {
-          setState(() {
-            a++;
-          });
-        },
-      ),
+      floatingActionButton: Builder(builder: (context) {
+        return FloatingActionButton(
+          child: Text("click"),
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return Dialog(
+                    child: Text("안녕"),
+                  );
+                });
+          },
+        );
+      }),
       appBar: AppBar(
         title: Text("연락처앱"),
       ),

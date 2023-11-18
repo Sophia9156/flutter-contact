@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var a = 3;
   var likes = [0, 0, 0];
   var name = ["김영숙", "홍길동", "피자집"];
 
@@ -26,9 +27,7 @@ class _MyAppState extends State<MyApp> {
             showDialog(
                 context: context,
                 builder: (context) {
-                  return Dialog(
-                    child: Text("안녕"),
-                  );
+                  return DialogUI(state: a);
                 });
           },
         );
@@ -57,5 +56,30 @@ class _MyAppState extends State<MyApp> {
             );
           }),
     ));
+  }
+}
+
+class DialogUI extends StatelessWidget {
+  const DialogUI({super.key, this.state});
+  final state;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: SizedBox(
+          width: 300,
+          height: 300,
+          child: Column(
+            children: [
+              TextField(),
+              TextButton(onPressed: () {}, child: Text(state.toString())),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("취소"))
+            ],
+          )),
+    );
   }
 }
